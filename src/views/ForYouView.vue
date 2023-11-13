@@ -12,18 +12,31 @@ export default defineComponent({
    
     const posts = reactive(new InitPosts());
     
-
-
-    // Axios request and data retrieval code here
-      axios.get('http://ec2-3-90-247-48.compute-1.amazonaws.com/GetAll')
-        .then(response => {
-          // TypeScript will now understand the structure of the response
-          posts.list = response.data; // Just assign the entire response data to posts
+   
+    const getPosts=()=>{
+      getPostList().then((res)=>{
+        
+        posts.list = res.data; // Just assign the entire response data to posts
           console.log('Posts Data:', posts.list);
         })
         .catch(error => {
           console.error('Error fetching posts:', error);
         });
+      };
+    onMounted(()=>{
+         getPosts()
+      });
+
+    // //Axios request and data retrieval code here
+    //   axios.get('http://ec2-3-90-247-48.compute-1.amazonaws.com/GetAll')
+    //     .then(response => {
+    //       // TypeScript will now understand the structure of the response
+    //       posts.list = response.data; // Just assign the entire response data to posts
+    //       console.log('Posts Data:', posts.list);
+    //     })
+    //     .catch(error => {
+    //       console.error('Error fetching posts:', error);
+    //     });
 
 
 
