@@ -3,11 +3,41 @@ import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+  routes: 
+  [
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      children:
+      [
+        {
+        path:"foryourPosts",
+        name:"foryourPosts",
+        meta:{
+          isShow:true,
+          title:"ForYou"
+        },
+        component: () => import('../views/ForYouView.vue')
+      },
+      {
+        path:"FollowingPosts",
+        name:"FollowingPosts",
+        meta:{
+          isShow:true,
+          title:"FollowingPosts"
+        },
+        component: () => import('../views/FollowingPostsView.vue')
+      },{
+        path:"YourStories",
+        name:"YourStories",
+        meta:{
+          isShow:true,
+          title:"YourStories"
+        },
+        component: () => import('../views/YourStoriesView.vue')
+      }
+     ]
     },
     {
       path: '/about',

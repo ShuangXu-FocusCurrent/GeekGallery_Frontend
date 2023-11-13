@@ -41,6 +41,7 @@ import type{FormInstance} from 'element-plus';
 import {login} from '../request/api';
 import {useRouter} from "vue-router";
 export default defineComponent({
+  name:'Login',
   setup () {
     const data=reactive(new LoginData());
     const  rules={

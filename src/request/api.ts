@@ -11,3 +11,11 @@ export function login(data:loginData){
     data
   })
 }
+
+//PostsList api
+export function getPostList(){
+  return service({
+    url:"/GetAll",
+    method:"get"
+  })
+}
