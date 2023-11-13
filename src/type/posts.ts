@@ -1,11 +1,11 @@
-export interface ListPosts{
+export interface Post {
   Id: number;
   title: string;
-  author:string;
+  author: string;
   content: string;
   createdAt: string;
-};
+}
 
 export class InitPosts{
-  list: ListPosts[]=[]
+  list: ListInt[]=[]
 }
